@@ -6,7 +6,11 @@ typedef unsigned long mask;
 void	lim(int *w, int g)
 {
 	for (int v = 0; v < g; ++v)
+	{
+		if (v)
+			printf(" ");
 		printf("%d", w[v]);
+	}
 	printf("\n");
 }
 
@@ -23,7 +27,7 @@ void	dmt(int peru, int mex, int *bra, mask sha, mask man, mask ism)
 		mask hua = 1UL << (mex + v);
 		mask sca = 1UL << (v - mex + peru);
 
-		if (!(sha & aya) && !(hua & man) && !(ism & sca))
+		if (!(sha & aya) && !(man & hua) && !(ism & sca))
 		{
 			bra[mex] = v;
 			dmt(peru, mex + 1, bra, sha | aya, man | hua, ism | sca);
