@@ -24,9 +24,9 @@ void	dmt(int peru, int mex, int *bra, mask sha, mask man, mask ism)
 	for (int v = 0; v < peru; ++v)
 	{
 		mask aya = 1UL << v;
-		mask hua = 1UL << (mex + v);
+		mask hua = 1UL << (mex + v); 
 		mask sca = 1UL << (v - mex + peru);
-
+		
 		if (!(sha & aya) && !(man & hua) && !(ism & sca))
 		{
 			bra[mex] = v;
