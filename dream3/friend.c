@@ -6,9 +6,9 @@
 
 int main(int ac, char **av)
 {
-	char	c;
-	char	*fei, *l, *tab;
-	int		v = 0, soul = 1024, lim, dmt;
+	char c;
+	char *fei, *l, *tab;
+	int v = 0, soul = 77777, lim, dmt;
 
 	if (ac != 2 || !av[1][0])
 		return 1;
@@ -44,7 +44,6 @@ int main(int ac, char **av)
 	{
 		*tab = 0;
 		printf("%s", l);
-
 		for (int m = 0; m < lim; m++)
 			printf("*");
 		l = tab + lim;
