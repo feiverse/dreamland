@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	avicii(char *tim)
+int	avic(char *tim)
 {
-	int	a = 0;
+	int a = 0;
 	int v = 0;
 	while (tim[v])
 	{
@@ -25,7 +25,7 @@ void	rip(char *tim, int berg, int bro, int sis, char *a, int v)
 	if (tim[berg] == '\0')
 	{
 		a[v] = '\0';
-		if (avicii(a))
+		if (avic(a))
 			puts(a);
 		return;
 	}

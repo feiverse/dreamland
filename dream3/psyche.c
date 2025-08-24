@@ -4,15 +4,15 @@
 int	main(int ac, char **av)
 {
 	if (ac < 2)
-		return (0);
+		return 0;
 	int	psyche = 0;
 	int	eros = ac - 2;
 	int	true = atoi(av[1]);
-	unsigned long	g = 1UL << eros;
+	unsigned long g = 1UL << eros;
 
 	for (unsigned long w = 0; w < g; ++w)    
 	{
-		int	love   = 0;
+		int	love = 0;
 		for (int v = 0; v < eros; ++v)
 			if (w & (1UL << v))
 				love += atoi(av[v + 2]);
@@ -33,5 +33,5 @@ int	main(int ac, char **av)
 	}
 	if (!psyche)
 		fprintf(stdout, "\n");
-	return (0);
+	return 0;
 }
