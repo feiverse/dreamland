@@ -1,18 +1,16 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 void	ams(int *psy, int room, int mush, char *good)
 {
-	int	v;
-
 	if (mush == room)
 	{
 		good[room] = '\0';
 		puts(good);
 		return;
 	}
-	for (v = 0; v < 256; ++v)
+	for (int v = 0; v < 256; ++v)
 		if (psy[v])
 		{
 			good[mush] = (char)v;
@@ -22,7 +20,7 @@ void	ams(int *psy, int room, int mush, char *good)
 		}
 }
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
 	if (ac == 2 && av[1][0])
 	{
