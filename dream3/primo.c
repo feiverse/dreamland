@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void	ams(int *psy, int room, int mush, char *good)
+void	ams(int *box, int room, int mush, char *good)
 {
 	if (mush == room)
 	{
@@ -11,12 +11,12 @@ void	ams(int *psy, int room, int mush, char *good)
 		return;
 	}
 	for (int v = 0; v < 256; ++v)
-		if (psy[v])
+		if (box[v])
 		{
 			good[mush] = (char)v;
-			--psy[v];
-			ams(psy, room, mush + 1, good);
-			++psy[v];
+			--box[v];
+			ams(box, room, mush + 1, good);
+			++box[v];
 		}
 }
 
@@ -24,13 +24,13 @@ int main(int ac, char **av)
 {
 	if (ac == 2 && av[1][0])
 	{
-		int fei[256] = {0};
+		int fee[256] = {0};
 		int age = strlen(av[1]);
 		char *god = malloc(age + 1);
 
 		for (int v = 0; v < age; ++v)
-			++fei[(unsigned char)av[1][v]];
-		ams(fei, age, 0, god);
+			++fee[(unsigned char)av[1][v]];
+		ams(fee, age, 0, god);
 		free(god);
 	}
 	return 0;
