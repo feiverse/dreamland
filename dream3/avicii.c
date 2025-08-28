@@ -47,13 +47,13 @@ int	main(int ac, char **av)
 {
 	if (ac != 2)
 		return 1;
-	char *house = av[1];
+	char *soul = av[1];
 	int	trance = 0, techno = 0, v = 0;
-	while (house[v])
+	while (soul[v])
 	{
-		if (house[v] == '(')
+		if (soul[v] == '(')
 			trance++;
-		else if (house[v] == ')')
+		else if (soul[v] == ')')
 		{
 			if (trance > 0)
 				trance--;
@@ -62,10 +62,10 @@ int	main(int ac, char **av)
 		}
 		v++;
 	}
-	char *soul = malloc(sizeof(char) * (v + 1));
-	if (!soul)
+	char *fee = malloc(sizeof(char) * (v + 1));
+	if (!fee)
 		return 1;
-	rave(house, 0, trance, techno, soul, 0);
-	free(soul);
+	rave(soul, 0, trance, techno, fee, 0);
+	free(fee);
 	return 0;
 }
