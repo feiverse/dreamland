@@ -18,54 +18,54 @@ int	avic(char *tim)
 	return (a == 0);
 }
 
-void	rip(char *tim, int berg, int bro, int sis, char *a, int v)
+void	rave(char *t, int w, int acid, int trap, char *beat, int v)
 {
-	if (bro < 0 || sis < 0)
+	if (acid < 0 || trap < 0)
 		return;
-	if (tim[berg] == '\0')
+	if (t[w] == '\0')
 	{
-		a[v] = '\0';
-		if (avic(a))
-			puts(a);
+		beat[v] = '\0';
+		if (avic(beat))
+			puts(beat);
 		return;
 	}
-	if (tim[berg] == '(' && bro > 0)
+	if (t[w] == '(' && acid > 0)
 	{
- 	   a[v] = ' ';
- 	   rip(tim, berg + 1, bro - 1, sis, a, v + 1);
+ 		beat[v] = ' ';
+ 		rave(t, w + 1, acid - 1, trap, beat, v + 1);
 	}
-	else if (tim[berg] == ')' && sis > 0) 
+	else if (t[w] == ')' && trap > 0) 
 	{
- 	   a[v] = ' ';
-	    rip(tim, berg + 1, bro, sis - 1, a, v + 1);
+		beat[v] = ' ';
+		rave(t, w + 1, acid, trap - 1, beat, v + 1);
 	}
-	a[v] = tim[berg];
-	rip(tim, berg + 1, bro, sis, a, v + 1);
+	beat[v] = t[w];
+	rave(t, w + 1, acid, trap, beat, v + 1);
 }
 
 int	main(int ac, char **av)
 {
 	if (ac != 2)
 		return 1;
-	char *tim = av[1];
-	int	peace = 0, heaven = 0, v = 0;
-	while (tim[v])
+	char *house = av[1];
+	int	trance = 0, techno = 0, v = 0;
+	while (house[v])
 	{
-		if (tim[v] == '(')
-			peace++;
-		else if (tim[v] == ')')
+		if (house[v] == '(')
+			trance++;
+		else if (house[v] == ')')
 		{
-			if (peace > 0)
-				peace--;
+			if (trance > 0)
+				trance--;
 			else
-				heaven++;
+				techno++;
 		}
 		v++;
 	}
 	char *soul = malloc(sizeof(char) * (v + 1));
 	if (!soul)
 		return 1;
-	rip(tim, 0, peace, heaven, soul, 0);
+	rave(house, 0, trance, techno, soul, 0);
 	free(soul);
 	return 0;
 }
